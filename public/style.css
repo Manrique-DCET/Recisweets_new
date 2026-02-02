@@ -1,0 +1,581 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container {
+    width: 100%;
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background: url(hand-drawn-bakery-pattern-design_23-2151738006.jpg);
+}
+header {
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    background: #f9e4bc;
+    box-shadow: 1px 1px 8px 8px rgba(0, 0, 0, 0.397);
+}
+@font-face {
+    font-family: header-font;
+    src: url(Bakery\ Home\ Free\ Trial.ttf);
+}
+.logo {
+    display: flex;
+    align-items: center;
+}
+h1 {
+    font-family: header-font;
+    font-size: 50px;
+    color: #864b15;
+    text-shadow: 2px 2px #c56e20;
+    font-weight: 700;
+    margin-right: 20px;
+}
+h2 {
+    font-family: header-font;
+    font-size: 40px;
+    color: #864b15;
+    text-shadow: 2px 2px #c56e20;
+    font-weight: 700;
+}
+nav ul {
+    display: flex;
+    list-style: none;
+}
+.sort-btn{
+    color: #864b15;
+    background: none;
+    text-shadow: 2px 2px #c56e20;
+    font-family: header-font;
+    padding: 5px 20px;
+    border: solid 2px #864b15;
+    border-radius: 15px;
+    font-size: 25px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+}    
+.sort-btn:hover {
+    background-color: #ddbc7e;
+    transform: translateY(-2px);
+}
+.search {
+    display: flex;
+    align-items: center;
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+    padding: 10px 20px;
+    border: none;
+    font-size: 15px;
+    font-family: header-font;
+}
+.btn {
+    background-color: #864b15;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    cursor: pointer;
+    font-size: 15px;
+    font-family: header-font;
+    transition: all 0.3s ease;
+}   
+.btn:hover {
+    background-color: #ddbc7e;
+}
+.sort-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center; 
+}
+.sort-modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+    animation: modalFadeIn 0.3s ease-in-out;
+    margin: 0;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.add-btn {
+    position: fixed;
+    bottom: 20px;  
+    right: 20px;   
+    padding: 15px 20px;
+    background-color: #ffffff; 
+    color: #864b15;
+    border-color: #864b15;
+    border-radius: 40px;
+    font-family: header-font;
+    font-size: 24px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+.add-btn:hover {
+    background-color: #d8c5a1;
+    transform: translateY(-2px);
+}
+.thumb {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 700px;
+    position: relative;
+    animation: modalFadeIn 0.3s ease-in-out;
+    margin: 0;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.view {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 20px;
+}
+.pop {
+    font-family: header-font;
+}
+table {
+    width: 100%;
+    border: #6d3e12 2px solid;
+    background-color: #ffefd2;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+table th, table td {
+    padding: 10px;
+    text-align: center;
+    border: #6d3e12 1px solid;
+}
+.recipe-list {
+    width: 70%;
+    padding: 15px;
+    border: #6d3e12 2px solid;
+    background-color: #fff5e0;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.recipe-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.detail-modal-content {
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    overflow: hidden;
+    max-height: 90vh;
+    max-width: 90%;
+    width: 900px;
+    background-color: white;
+    border-radius: 20px;
+    line-height: 1.5;
+}
+p {
+    font-family: Arial;
+    font-size: 20px;
+    color: #864b15;
+    margin-bottom: 10px;
+}
+.close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 30px;
+    background: red;
+    color: white;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 35px;
+    cursor: pointer;
+    z-index: 10;
+}
+.detail-bg {
+    width: 50%;
+    height: auto;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    margin: none;
+}
+.detail-bg::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+.detail-info {
+    width: 50%;
+    padding: 18px;
+    overflow-y: auto;
+    background-color: rgba(255, 255, 255, 0.97);
+}
+.detail-info {
+    background: #fff;
+    padding: 24px;
+    border-radius: 12px;
+    color: #333;
+}
+.detail-info pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+#addRecipeModal .modal-content {
+    background-color: #fffdf7;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    max-height: 90vh;
+    overflow-y: auto;
+    font-family: Arial, sans-serif;
+}
+#addRecipeModal h3 {
+    color: #864b15;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+#addRecipeForm .form-group {
+    margin-bottom: 15px;
+}
+#addRecipeForm label {
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    color: #864b15;
+    margin-bottom: 5px;
+}
+#addRecipeForm input[type="text"],
+#addRecipeForm input[type="number"],
+#addRecipeForm select,
+#addRecipeForm textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #c8b28d;
+    border-radius: 10px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+}
+#addRecipeForm textarea {
+    resize: vertical;
+}
+.add-recipe-btn, .cancel-btn {
+    background-color: #864b15;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    font-family: header-font;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-right: 10px;
+    transition: 0.3s ease;
+}
+.add-recipe-btn:hover, .cancel-btn:hover {
+    background-color: #d1a36f;
+}
+
+#sortItems .sort-modal-content {
+    background-color: #fffdf7;
+    padding: 25px;
+    border-radius: 20px;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    max-height: 90vh;
+    overflow-y: auto;
+}
+#sortItems h3 {
+    font-size: 24px;
+    color: #864b15;
+    margin-bottom: 10px;
+}
+#sortItemForm .form-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-bottom: 30px;
+}
+#sortItemForm select {
+    flex: 1;
+    padding: 10px;
+    font-family: Arial;
+    font-size: 14px;
+    border-radius: 10px;
+    border: 1px solid #c8b28d;
+}
+.thumb {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 35px;
+    text-align: center;
+}
+.thumb img {
+    border-radius: 15px;
+    object-fit: cover;
+    border: 2px solid #c8b28d;
+    transition: 0.3s;
+}
+.thumb input[type="checkbox"] {
+    margin-top: 5px;
+}
+.applysort, .resetsort {
+    background-color: #864b15;
+    color: white;
+    font-family: header-font;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: 0.3s ease;
+}
+.applysort:hover, .resetsort:hover {
+    background-color: #d1a36f;
+}
+
+.recipe-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+.detail-modal-content {
+    display: flex;
+    flex-direction: row;
+    background-color: #fffdf7;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    max-width: 1000px;
+    width: 90%;
+    max-height: 90vh;
+    overflow: hidden;
+    position: relative;
+}
+.detail-bg {
+    width: 50%;
+    background-size: cover;
+    background-position: center;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    position: relative;
+}
+.detail-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.3), transparent);
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+.detail-info {
+    width: 50%;
+    padding: 25px;
+    overflow-y: auto;
+    background-color: rgba(255, 255, 255, 0.97);
+    font-family: Arial, sans-serif;
+}
+.detail-info h2 {
+    font-family: header-font;
+    font-size: 32px;
+    color: #864b15;
+    margin-bottom: 15px;
+}
+.detail-info p {
+    font-size: 16px;
+    color: #5a3210;
+    margin-bottom: 10px;
+}
+.detail-info pre {
+    font-size: 15px;
+    color: #5a3210;
+    background-color: #fff2e1;
+    padding: 8px 12px;
+    border-radius: 10px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    margin-bottom: 15px;
+}
+.detail-info strong {
+    color: #864b15;
+}
+.detail-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+.edit-bttn, .delete-bttn {
+    background-color: #864b15;
+    color: white;
+    font-family: header-font;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.edit-bttn:hover {
+    background-color: #b97740;
+}
+.delete-bttn {
+    background-color: #c73f3f;
+}
+.delete-bttn:hover {
+    background-color: #e87070;
+}
+.close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 30px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    cursor: pointer;
+    z-index: 10;
+}
+.recipe-item {
+    position: relative;
+}
+
+.recipe-item p {
+    margin: 5px 0;
+}
+
+.recipe-item .author {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-style: italic;
+    color: #666;
+}
+.recipe-link + small {
+    font-size: 0.8em;
+    font-style: italic;
+    margin-top: 2px;
+    display: block;
+}
+.recipe-link + br + small {
+    font-weight: bold;
+    font-size: 0.75em;
+    padding: 2px 6px;
+    border-radius: 3px;
+    display: inline-block;
+    margin-top: 3px;
+}
+#togglePublicBtn {
+    transition: background-color 0.3s ease;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 15px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+#togglePublicBtn:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+.detail-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+.detail-actions button {
+    flex: 1;
+    min-width: 120px;
+}
+.detail-actions button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+#recipeTable1 tbody tr:hover {
+    background-color: #f8f9fa;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: all 0.2s ease;
+}
+.search {
+    transition: border-color 0.3s ease;
+}
+.search:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0,123,255,0.3);
+}

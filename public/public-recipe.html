@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recipe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="publicRecipe"></div>
+    </div>
+    <script>
+        async function loadRecipe() {
+            const id = window.location.pathname.split('/').pop();
+            const res = await fetch(`/api/public-recipe/${id}`);
+            if (!res.ok) {
+                document.getElementById('publicRecipe').textContent = 'Recipe not found.';
+                return;
+            }
+            const recipe = await res.json();
+            document.getElementById('publicRecipe').innerHTML = `
+                <h1>${recipe.name}</h1>
+                <p><strong>Type:</strong> ${recipe.type}</p>
+                <p><strong>Difficulty:</strong> ${recipe.difficulty}</p>
+                <p><strong>Time:</strong> ${recipe.time}</p>
+                <p><strong>Servings:</strong> ${recipe.servings}</p>
+                <h2>Ingredients</h2>
+                <pre>${recipe.ingredients}</pre>
+                <h2>Instructions</h2>
+                <pre>${recipe.instructions}</pre>
+            `;
+        }
+        loadRecipe();
+    </script>
+</body>
+</html>
