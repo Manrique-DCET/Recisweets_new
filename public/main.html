@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="icon" href="favicon.ico">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="container">
         <header>
@@ -15,7 +17,8 @@
             </div>
             <nav>
                 <ul>
-                    <li><button id="togglePublicBtn" class="delete-bttn" style="background-color: #28a745;">Show Public Recipes</button></li>
+                    <li><button id="togglePublicBtn" class="delete-bttn" style="background-color: #28a745;">Show Public
+                            Recipes</button></li>
                 </ul>
             </nav>
         </header>
@@ -28,8 +31,10 @@
                     <img src="cat-wtf.gif" width="100">
                     <h2 id="galleryTitle">My Recipe Gallery</h2>
                     <img src="cat-wtf.gif" width="100">
-                    <div style="display: flex;"><input class="search" id="itemSearch" type="text" placeholder="Search Recipe">
-                    <button class="btn" onclick="searchRecipe()">Search</button></div>
+                    <div style="display: flex;"><input class="search" id="itemSearch" type="text"
+                            placeholder="Search Recipe">
+                        <button class="btn" onclick="searchRecipe()">Search</button>
+                    </div>
                     <button id="sortBtn" class="sort-btn">Sort</button>
                 </div>
                 <table id="recipeTable1">
@@ -81,19 +86,21 @@
                             <option value="Deep Fried Sweets">Deep Fried Sweets</option>
                             <option value="Frozen Sweets">Frozen Sweets</option>
                             <option value="Gelatin Desserts">Gelatin Desserts</option>
-                            <option value="Fruit Desserts">Fruit Desserts</option>    
+                            <option value="Fruit Desserts">Fruit Desserts</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="ingredients">Ingredients:</label>
                         <div>
-                            <textarea id="ingredients" name="ingredients" rows="3" placeholder="Type the ingredients here" required></textarea>
+                            <textarea id="ingredients" name="ingredients" rows="3"
+                                placeholder="Type the ingredients here" required></textarea>
                         </div>
-                    </div>                    
+                    </div>
                     <div class="form-group">
                         <label for="recipeInst">Instructions:</label>
                         <div>
-                            <textarea id="recipeInst" name="recipeInst" rows="3" placeholder="Type the instructions here" required></textarea>
+                            <textarea id="recipeInst" name="recipeInst" rows="3"
+                                placeholder="Type the instructions here" required></textarea>
                         </div>
                     </div>
                     <div class="form-group">
@@ -102,23 +109,28 @@
                     </div>
                     <div class="form-group">
                         <label for="servings">Servings:</label>
-                        <input type="number" id="servings" name="servings" min="1" placeholder="e.g. 4 servings" required>
+                        <input type="number" id="servings" name="servings" min="1" placeholder="e.g. 4 servings"
+                            required>
                     </div>
                     <div class="form-group">
                         <label for="info">Nutritional Information: (optional)</label>
-                        <div><textarea id="info" name="info" rows="3" placeholder="Type the nutritional information here"></textarea></div>
+                        <div><textarea id="info" name="info" rows="3"
+                                placeholder="Type the nutritional information here"></textarea></div>
                     </div>
                     <div class="form-group">
                         <label for="equipment">Equipment Needed: (optional)</label>
-                        <div><textarea id="equipment" name="equipment" rows="3" placeholder="Type the equipment needed here"></textarea></div>
+                        <div><textarea id="equipment" name="equipment" rows="3"
+                                placeholder="Type the equipment needed here"></textarea></div>
                     </div>
                     <div class="form-group">
                         <label for="tips">Tips and Tricks: (optional)</label>
-                        <div><textarea id="tips" name="tips" rows="3" placeholder="Provide some tips here"></textarea></div>
+                        <div><textarea id="tips" name="tips" rows="3" placeholder="Provide some tips here"></textarea>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="storage">Storage Instructions: (optional)</label>
-                        <div><textarea id="storage" name="storage" rows="3" placeholder="How to store leftovers or how long the dish last"></textarea></div>
+                        <div><textarea id="storage" name="storage" rows="3"
+                                placeholder="How to store leftovers or how long the dish last"></textarea></div>
                     </div>
                     <div class="form-group">
                         <label for="isPublic">
@@ -151,9 +163,10 @@
                     <h3>Type of Sweets:</h3>
                     <div class="form-group">
                         <span class="thumb">
-                            <label for="cake"><img src="easy_chocolate_cake_slice-500x500.jpg" height="100" width="100"></label>
+                            <label for="cake"><img src="easy_chocolate_cake_slice-500x500.jpg" height="100"
+                                    width="100"></label>
                             <input type="checkbox" id="cake" name="sortOrder" value="cakes">
-                            <label for="cake">Cakes</label> 
+                            <label for="cake">Cakes</label>
                         </span>
 
                         <span class="thumb">
@@ -161,33 +174,39 @@
                             <input type="checkbox" id="cookies" name="sortOrder" value="cookies">
                             <label for="cookies">Cookies</label>
                         </span>
-                        
+
                         <span class="thumb">
-                            <label for="biscuits"><img src="recipe-image-legacy-id-901527_10-cb91efc.jpg" height="100" width="100"></label>
+                            <label for="biscuits"><img src="recipe-image-legacy-id-901527_10-cb91efc.jpg" height="100"
+                                    width="100"></label>
                             <input type="checkbox" id="biscuits" name="sortOrder" value="biscuits">
-                            <label for="biscuits">Biscuits</label>                            
+                            <label for="biscuits">Biscuits</label>
                         </span>
 
                         <span class="thumb">
-                            <label for="pastries"><img src="Pastry_baking-processes-e1593464950587.jpg" height="100" width="100"></label>
+                            <label for="pastries"><img src="Pastry_baking-processes-e1593464950587.jpg" height="100"
+                                    width="100"></label>
                             <input type="checkbox" id="pastries" name="sortOrder" value="pastries">
-                            <label for="pastries">Pastries</label>                            
+                            <label for="pastries">Pastries</label>
                         </span>
 
                         <span class="thumb">
-                            <label for="puddings"><img src="istockphoto-139483187-612x612.jpg" height="100" width="100"></label>
+                            <label for="puddings"><img src="istockphoto-139483187-612x612.jpg" height="100"
+                                    width="100"></label>
                             <input type="checkbox" id="puddings" name="sortOrder" value="custardsandpuddings">
-                            <label for="puddings">Custards and Puddings</label>    
+                            <label for="puddings">Custards and Puddings</label>
                         </span>
-                        
+
                         <span class="thumb">
-                            <label for="deepfried"><img src="54f6527f61350_-_orange-kissed-churros-with-hot-chocolate-sauce-recipe-mdn.jpg" height="100" width="100"></label>
+                            <label for="deepfried"><img
+                                    src="54f6527f61350_-_orange-kissed-churros-with-hot-chocolate-sauce-recipe-mdn.jpg"
+                                    height="100" width="100"></label>
                             <input type="checkbox" id="deepfried" name="sortOrder" value="deepfriedsweets">
                             <label for="deepfried">Deep Fried Sweets</label>
                         </span>
-                        
+
                         <span class="thumb">
-                            <label for="frozen"><img src="exps183409_RDS143481C04_16_6b.jpg" height="100" width="100"></label>
+                            <label for="frozen"><img src="exps183409_RDS143481C04_16_6b.jpg" height="100"
+                                    width="100"></label>
                             <input type="checkbox" id="frozen" name="sortOrder" value="frozensweets">
                             <label for="frozen">Frozen Sweets</label>
                         </span>
@@ -199,7 +218,9 @@
                         </span>
 
                         <span class="thumb">
-                            <label for="fruit"><img src="fourth-trimester-mixed-fruit-salad_LEDE_V2_061124_1745_VOG_final.jpg" height="100" width="100"></label>
+                            <label for="fruit"><img
+                                    src="fourth-trimester-mixed-fruit-salad_LEDE_V2_061124_1745_VOG_final.jpg"
+                                    height="100" width="100"></label>
                             <input type="checkbox" id="fruit" name="sortOrder" value="fruitdesserts">
                             <label for="fruit">Fruit Desserts</label>
                         </span>
@@ -209,7 +230,7 @@
                 </form>
             </div>
         </div>
-        
+
     </div>
 
     <!-- modal to show recipe's full details -->
@@ -218,72 +239,85 @@
             <span class="close" id="closeDetailsModal">&times;</span>
             <div class="detail-bg" id="detailBackgroundImage"></div>
             <div class="detail-info">
-            <h2 id="detailTitle"></h2>
+                <h2 id="detailTitle"></h2>
 
-            <p><strong>Difficulty:</strong> <span id="detailDifficulty"></span></p>
-            <p><strong>Type:</strong> <span id="detailType"></span></p>
-            <p><strong>Total Time:</strong> <span id="detailTime"></span></p>
-            <p><strong>Servings:</strong> <span id="detailServings"></span></p>
-            <p><strong>Ingredients:</strong> <pre id="detailIngredients"></pre></p>
-            <p><strong>Instructions:</strong> <pre id="detailInstructions"></pre></p>
-            <p><strong>Nutrition Info:</strong> <pre id="detailInfo"></pre></p>
-            <p><strong>Equipment:</strong> <pre id="detailEquipment"></pre></p>
-            <p><strong>Tips:</strong> <pre id="detailTips"></pre></p>
-            <p><strong>Storage:</strong> <pre id="detailStorage"></pre></p>
-            <p><strong>Date Added:</strong> <span id="detailDate"></span></p>
+                <p><strong>Difficulty:</strong> <span id="detailDifficulty"></span></p>
+                <p><strong>Type:</strong> <span id="detailType"></span></p>
+                <p><strong>Total Time:</strong> <span id="detailTime"></span></p>
+                <p><strong>Servings:</strong> <span id="detailServings"></span></p>
+                <p><strong>Ingredients:</strong>
+                <pre id="detailIngredients"></pre>
+                </p>
+                <p><strong>Instructions:</strong>
+                <pre id="detailInstructions"></pre>
+                </p>
+                <p><strong>Nutrition Info:</strong>
+                <pre id="detailInfo"></pre>
+                </p>
+                <p><strong>Equipment:</strong>
+                <pre id="detailEquipment"></pre>
+                </p>
+                <p><strong>Tips:</strong>
+                <pre id="detailTips"></pre>
+                </p>
+                <p><strong>Storage:</strong>
+                <pre id="detailStorage"></pre>
+                </p>
+                <p><strong>Date Added:</strong> <span id="detailDate"></span></p>
 
-            <div class="detail-actions">
-                <button id="editRecipeBtn" class="edit-bttn">Edit</button>
-                <button id="deleteRecipeBtn" class="delete-bttn">Delete</button>
-                <button id="shareRecipeBtn" class="edit-bttn">Share</button>
-                <button id="downloadRecipePngBtn" class="edit-bttn">Download as PNG</button>
-            </div>
+                <div class="detail-actions">
+                    <button id="editRecipeBtn" class="edit-bttn">Edit</button>
+                    <button id="deleteRecipeBtn" class="delete-bttn">Delete</button>
+                    <button id="shareRecipeBtn" class="edit-bttn">Share</button>
+                    <button id="downloadRecipePngBtn" class="edit-bttn">Download as PDF</button>
+                </div>
             </div>
         </div>
     </div>
 
     <script>
-    let showingPublicRecipes = false;
-    
-    document.addEventListener('DOMContentLoaded', function() {
-        const toggleBtn = document.getElementById('togglePublicBtn');
-        const galleryTitle = document.getElementById('galleryTitle');
-        
-        if (toggleBtn && galleryTitle) {
-            toggleBtn.addEventListener('click', async function() {
-                showingPublicRecipes = !showingPublicRecipes;
-                
-                if (showingPublicRecipes) {
-                    toggleBtn.textContent = 'Show My Recipes';
-                    toggleBtn.style.backgroundColor = '#007bff';
-                    galleryTitle.textContent = 'All Public Recipes';
-                    
-                    // Load and display public recipes
-                    try {
-                        await loadPublicRecipes();
-                    } catch (error) {
-                        console.error('Error loading public recipes:', error);
-                        alert('Failed to load public recipes');
-                        // Revert the toggle state
-                        showingPublicRecipes = false;
+        let showingPublicRecipes = false;
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const toggleBtn = document.getElementById('togglePublicBtn');
+            const galleryTitle = document.getElementById('galleryTitle');
+
+            if (toggleBtn && galleryTitle) {
+                toggleBtn.addEventListener('click', async function () {
+                    showingPublicRecipes = !showingPublicRecipes;
+
+                    if (showingPublicRecipes) {
+                        toggleBtn.textContent = 'Show My Recipes';
+                        toggleBtn.style.backgroundColor = '#007bff';
+                        galleryTitle.textContent = 'All Public Recipes';
+
+                        // Load and display public recipes
+                        try {
+                            await loadPublicRecipes();
+                        } catch (error) {
+                            console.error('Error loading public recipes:', error);
+                            alert('Failed to load public recipes');
+                            // Revert the toggle state
+                            showingPublicRecipes = false;
+                            toggleBtn.textContent = 'Show Public Recipes';
+                            toggleBtn.style.backgroundColor = '#28a745';
+                            galleryTitle.textContent = 'My Recipe Gallery';
+                        }
+                    } else {
                         toggleBtn.textContent = 'Show Public Recipes';
                         toggleBtn.style.backgroundColor = '#28a745';
                         galleryTitle.textContent = 'My Recipe Gallery';
+
+                        // Display user's own recipes
+                        displayRecipes();
                     }
-                } else {
-                    toggleBtn.textContent = 'Show Public Recipes';
-                    toggleBtn.style.backgroundColor = '#28a745';
-                    galleryTitle.textContent = 'My Recipe Gallery';
-                    
-                    // Display user's own recipes
-                    displayRecipes();
-                }
-            });
-        }
-    });
-</script>
+                });
+            }
+        });
+    </script>
 
     <script src="script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </body>
+
 </html>

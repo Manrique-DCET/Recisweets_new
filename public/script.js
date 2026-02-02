@@ -21,7 +21,7 @@ function addLogoutButton() {
     const logoutLi = document.createElement('li');
     logoutLi.innerHTML = '<button class="delete-bttn" id="logoutBtn">Logout</button>';
     nav.appendChild(logoutLi);
-    
+
     document.getElementById('logoutBtn').addEventListener('click', logout);
 }
 
@@ -31,7 +31,7 @@ async function logout() {
             method: 'POST',
             credentials: 'include'
         });
-        
+
         if (response.ok) {
             inventory = [];
             currentUser = null;
@@ -85,7 +85,7 @@ async function saveRecipesToServer() {
             },
             body: JSON.stringify({ recipes: inventory })
         });
-        
+
         if (!response.ok) {
             const data = await response.json();
             throw new Error(data.message || 'Failed to save recipes');
@@ -107,7 +107,7 @@ async function saveRecipe(recipe) {
             credentials: 'include',
             body: JSON.stringify({ recipe })
         });
-        
+
         if (!response.ok) {
             if (response.status === 401) {
                 window.location.href = '/login';
@@ -158,7 +158,7 @@ async function compressImage(file, maxWidth = 800, maxHeight = 600, quality = 0.
 
                 canvas.width = width;
                 canvas.height = height;
-                
+
                 const ctx = canvas.getContext('2d');
                 ctx.drawImage(img, 0, 0, width, height);
 
@@ -269,7 +269,7 @@ function displayRecipes() {
     if (!recipeBody) return;
 
     recipeBody.innerHTML = '';
-    
+
     const recipes = [...inventory].sort((a, b) => {
         return new Date(b.date) - new Date(a.date);
     });
@@ -299,7 +299,7 @@ function displayRecipes() {
             currentEditingId = recipe.id;
             showRecipeDetails(recipe, true);
         });
-        
+
         recipeBody.appendChild(row);
     });
 }
@@ -339,7 +339,7 @@ function displayPublicRecipes() {
             e.preventDefault();
             showPublicRecipeDetails(recipe);
         });
-        
+
         recipeBody.appendChild(row);
     });
 }
@@ -376,7 +376,7 @@ function showRecipeDetails(recipe, isOwner = true) {
     document.getElementById("detailType").textContent = recipe.type;
     document.getElementById("detailDifficulty").textContent = recipe.difficulty;
     document.getElementById("detailTime").textContent = recipe.totalTime;
-    document.getElementById("detailServings").textContent = recipe.servings;    
+    document.getElementById("detailServings").textContent = recipe.servings;
     document.getElementById("detailIngredients").textContent = recipe.ingredients;
     document.getElementById("detailInstructions").textContent = recipe.instructions;
     document.getElementById("detailInfo").textContent = recipe.info || 'Not specified';
@@ -389,7 +389,7 @@ function showRecipeDetails(recipe, isOwner = true) {
     const deleteBtn = document.getElementById("deleteRecipeBtn");
     const shareBtn = document.getElementById("shareRecipeBtn");
     const downloadBtn = document.getElementById("downloadRecipePngBtn");
-    
+
     if (isOwner) {
         editBtn.style.display = 'inline-block';
         deleteBtn.style.display = 'inline-block';
@@ -403,7 +403,7 @@ function showRecipeDetails(recipe, isOwner = true) {
     }
 
     window.currentRecipeDetails = recipe;
-    
+
     showModal(recipeDetailsModal);
 }
 
@@ -415,7 +415,7 @@ function showPublicRecipeDetails(recipe) {
     document.getElementById("detailType").textContent = recipe.type;
     document.getElementById("detailDifficulty").textContent = recipe.difficulty;
     document.getElementById("detailTime").textContent = recipe.totalTime;
-    document.getElementById("detailServings").textContent = recipe.servings;    
+    document.getElementById("detailServings").textContent = recipe.servings;
     document.getElementById("detailIngredients").textContent = recipe.ingredients;
     document.getElementById("detailInstructions").textContent = recipe.instructions;
     document.getElementById("detailInfo").textContent = recipe.info || 'Not specified';
@@ -436,7 +436,7 @@ function showPublicRecipeDetails(recipe) {
     downloadBtn.style.display = 'inline-block';
 
     window.currentRecipeDetails = recipe;
-    
+
     showModal(recipeDetailsModal);
 }
 
@@ -493,16 +493,16 @@ document.getElementById("deleteRecipeBtn").onclick = () => {
 
 addRecipeForm.onsubmit = async (e) => {
     e.preventDefault();
-    
+
     const submitButton = document.getElementById('addRecipe');
     const originalText = submitButton.textContent;
-    
+
     try {
         validateRecipeForm();
 
         submitButton.textContent = 'Saving...';
         submitButton.disabled = true;
-        
+
         const formData = new FormData(e.target);
 
         const recipeData = {
@@ -556,9 +556,9 @@ addRecipeForm.onsubmit = async (e) => {
         hideModal(addRecipeModal);
         e.target.reset();
         currentEditingId = null;
-        
+
         alert('Recipe saved successfully!');
-        
+
     } catch (error) {
         console.error('Form submission error:', error);
         alert(`Error saving recipe: ${error.message}`);
@@ -659,24 +659,57 @@ async function fetchWithAuth(url, options = {}) {
     }
 }
 
-document.addEventListener('click', function(e) {
+document.addEventListener('click', function (e) {
     if (e.target && e.target.id === 'downloadRecipePngBtn') {
         const detailInfo = document.querySelector('.detail-modal-content');
-        if (detailInfo && typeof html2canvas !== 'undefined') {
-            html2canvas(detailInfo).then(canvas => {
-                const link = document.createElement('a');
-                link.download = `${document.getElementById('detailTitle').textContent || 'recipe'}.png`;
-                link.href = canvas.toDataURL('image/png');
-                link.click();
+        if (detailInfo && typeof html2pdf !== 'undefined') {
+            const recipeName = document.getElementById('detailTitle').textContent || 'recipe';
+
+            // Clone the element to modify styles for PDF without affecting the UI
+            const element = detailInfo.cloneNode(true);
+
+            // Remove the close button and action buttons from the PDF
+            const closeBtn = element.querySelector('.close');
+            if (closeBtn) closeBtn.remove();
+
+            const actionsDiv = element.querySelector('.detail-actions');
+            if (actionsDiv) actionsDiv.remove();
+
+            // Adjust styles for PDF
+            element.style.width = '100%';
+            element.style.maxWidth = '100%';
+            element.style.height = 'auto';
+            element.style.maxHeight = 'none';
+            element.style.overflow = 'visible';
+
+            const opt = {
+                margin: [10, 10],
+                filename: `${recipeName}.pdf`,
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, useCORS: true },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+
+            // Show loading state
+            e.target.textContent = 'Generating PDF...';
+            e.target.disabled = true;
+
+            html2pdf().set(opt).from(element).save().then(() => {
+                e.target.textContent = 'Download as PDF';
+                e.target.disabled = false;
             }).catch(error => {
-                console.error('Error generating PNG:', error);
-                alert('Error generating PNG file');
+                console.error('Error generating PDF:', error);
+                alert('Error generating PDF file');
+                e.target.textContent = 'Download as PDF';
+                e.target.disabled = false;
             });
+        } else {
+            alert('PDF generator library not loaded.');
         }
     }
 });
 
-document.addEventListener('click', function(e) {
+document.addEventListener('click', function (e) {
     if (e.target && e.target.id === 'shareRecipeBtn') {
         const recipe = window.currentRecipeDetails;
         if (recipe && recipe.isPublic) {
