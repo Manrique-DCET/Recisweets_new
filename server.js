@@ -106,8 +106,15 @@ app.get('/signup', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'signup.html'));
 });
 
-app.get('/', authenticateToken, (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'main.html'));
+app.get('/', (req, res) => {
+    const token = req.cookies.token;
+    if (!token) return res.redirect('/login');
+
+    jwt.verify(token, JWT_SECRET, (err, user) => {
+        if (err) return res.redirect('/login');
+        req.user = user;
+        res.sendFile(path.join(__dirname, 'public', 'main.html'));
+    });
 });
 
 app.post('/api/auth/login', async (req, res) => {
