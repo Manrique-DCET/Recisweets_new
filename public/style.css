@@ -1,8 +1,9 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 .container {
     width: 100%;
     height: 100vh;
@@ -11,6 +12,7 @@
     background-repeat: no-repeat;
     background: url(hand-drawn-bakery-pattern-design_23-2151738006.jpg);
 }
+
 header {
     padding: 10px 20px;
     display: flex;
@@ -20,14 +22,17 @@ header {
     background: #f9e4bc;
     box-shadow: 1px 1px 8px 8px rgba(0, 0, 0, 0.397);
 }
+
 @font-face {
     font-family: header-font;
     src: url(Bakery\ Home\ Free\ Trial.ttf);
 }
+
 .logo {
     display: flex;
     align-items: center;
 }
+
 h1 {
     font-family: header-font;
     font-size: 50px;
@@ -36,6 +41,7 @@ h1 {
     font-weight: 700;
     margin-right: 20px;
 }
+
 h2 {
     font-family: header-font;
     font-size: 40px;
@@ -43,11 +49,13 @@ h2 {
     text-shadow: 2px 2px #c56e20;
     font-weight: 700;
 }
+
 nav ul {
     display: flex;
     list-style: none;
 }
-.sort-btn{
+
+.sort-btn {
     color: #864b15;
     background: none;
     text-shadow: 2px 2px #c56e20;
@@ -59,11 +67,13 @@ nav ul {
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
-}    
+}
+
 .sort-btn:hover {
     background-color: #ddbc7e;
     transform: translateY(-2px);
 }
+
 .search {
     display: flex;
     align-items: center;
@@ -74,6 +84,7 @@ nav ul {
     font-size: 15px;
     font-family: header-font;
 }
+
 .btn {
     background-color: #864b15;
     color: white;
@@ -85,10 +96,12 @@ nav ul {
     font-size: 15px;
     font-family: header-font;
     transition: all 0.3s ease;
-}   
+}
+
 .btn:hover {
     background-color: #ddbc7e;
 }
+
 .sort-modal {
     display: none;
     position: fixed;
@@ -99,8 +112,9 @@ nav ul {
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 1000;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
 }
+
 .sort-modal-content {
     background-color: white;
     padding: 20px;
@@ -114,12 +128,13 @@ nav ul {
     overflow-y: auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
 .add-btn {
     position: fixed;
-    bottom: 20px;  
-    right: 20px;   
+    bottom: 20px;
+    right: 20px;
     padding: 15px 20px;
-    background-color: #ffffff; 
+    background-color: #ffffff;
     color: #864b15;
     border-color: #864b15;
     border-radius: 40px;
@@ -130,16 +145,19 @@ nav ul {
     z-index: 1000;
     transition: all 0.3s ease;
 }
+
 .add-btn:hover {
     background-color: #d8c5a1;
     transform: translateY(-2px);
 }
+
 .thumb {
     width: 100px;
     height: 100px;
     border-radius: 50%;
     margin-right: 20px;
 }
+
 .modal {
     display: none;
     position: fixed;
@@ -152,6 +170,7 @@ nav ul {
     justify-content: center;
     align-items: center;
 }
+
 .modal-content {
     background-color: white;
     padding: 20px;
@@ -165,6 +184,7 @@ nav ul {
     overflow-y: auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
 .view {
     display: flex;
     flex-direction: row;
@@ -172,9 +192,11 @@ nav ul {
     justify-content: space-evenly;
     padding: 20px;
 }
+
 .pop {
     font-family: header-font;
 }
+
 table {
     width: 100%;
     border: #6d3e12 2px solid;
@@ -186,11 +208,14 @@ table {
     justify-content: center;
     z-index: 1000;
 }
-table th, table td {
+
+table th,
+table td {
     padding: 10px;
     text-align: center;
     border: #6d3e12 1px solid;
 }
+
 .recipe-list {
     width: 70%;
     padding: 15px;
@@ -229,12 +254,14 @@ table th, table td {
     border-radius: 20px;
     line-height: 1.5;
 }
+
 p {
     font-family: Arial;
     font-size: 20px;
     color: #864b15;
     margin-bottom: 10px;
 }
+
 .close {
     position: absolute;
     top: 15px;
@@ -250,6 +277,7 @@ p {
     cursor: pointer;
     z-index: 10;
 }
+
 .detail-bg {
     width: 50%;
     height: auto;
@@ -258,6 +286,7 @@ p {
     position: relative;
     margin: none;
 }
+
 .detail-bg::after {
     content: "";
     position: absolute;
@@ -266,22 +295,26 @@ p {
     height: 100%;
     width: 100%;
 }
+
 .detail-info {
     width: 50%;
     padding: 18px;
     overflow-y: auto;
     background-color: rgba(255, 255, 255, 0.97);
 }
+
 .detail-info {
     background: #fff;
     padding: 24px;
     border-radius: 12px;
     color: #333;
 }
+
 .detail-info pre {
     white-space: pre-wrap;
     word-wrap: break-word;
 }
+
 #addRecipeModal .modal-content {
     background-color: #fffdf7;
     border-radius: 20px;
@@ -291,14 +324,17 @@ p {
     overflow-y: auto;
     font-family: Arial, sans-serif;
 }
+
 #addRecipeModal h3 {
     color: #864b15;
     font-size: 28px;
     margin-bottom: 20px;
 }
+
 #addRecipeForm .form-group {
     margin-bottom: 15px;
 }
+
 #addRecipeForm label {
     display: block;
     font-size: 16px;
@@ -306,6 +342,7 @@ p {
     color: #864b15;
     margin-bottom: 5px;
 }
+
 #addRecipeForm input[type="text"],
 #addRecipeForm input[type="number"],
 #addRecipeForm select,
@@ -317,10 +354,13 @@ p {
     font-size: 14px;
     font-family: Arial, sans-serif;
 }
+
 #addRecipeForm textarea {
     resize: vertical;
 }
-.add-recipe-btn, .cancel-btn {
+
+.add-recipe-btn,
+.cancel-btn {
     background-color: #864b15;
     color: #fff;
     padding: 10px 20px;
@@ -333,7 +373,9 @@ p {
     margin-right: 10px;
     transition: 0.3s ease;
 }
-.add-recipe-btn:hover, .cancel-btn:hover {
+
+.add-recipe-btn:hover,
+.cancel-btn:hover {
     background-color: #d1a36f;
 }
 
@@ -346,11 +388,13 @@ p {
     max-height: 90vh;
     overflow-y: auto;
 }
+
 #sortItems h3 {
     font-size: 24px;
     color: #864b15;
     margin-bottom: 10px;
 }
+
 #sortItemForm .form-group {
     display: flex;
     flex-wrap: wrap;
@@ -358,6 +402,7 @@ p {
     justify-content: space-evenly;
     margin-bottom: 30px;
 }
+
 #sortItemForm select {
     flex: 1;
     padding: 10px;
@@ -366,6 +411,7 @@ p {
     border-radius: 10px;
     border: 1px solid #c8b28d;
 }
+
 .thumb {
     display: flex;
     flex-direction: column;
@@ -373,16 +419,20 @@ p {
     margin: 35px;
     text-align: center;
 }
+
 .thumb img {
     border-radius: 15px;
     object-fit: cover;
     border: 2px solid #c8b28d;
     transition: 0.3s;
 }
+
 .thumb input[type="checkbox"] {
     margin-top: 5px;
 }
-.applysort, .resetsort {
+
+.applysort,
+.resetsort {
     background-color: #864b15;
     color: white;
     font-family: header-font;
@@ -394,7 +444,9 @@ p {
     margin-right: 10px;
     transition: 0.3s ease;
 }
-.applysort:hover, .resetsort:hover {
+
+.applysort:hover,
+.resetsort:hover {
     background-color: #d1a36f;
 }
 
@@ -410,6 +462,7 @@ p {
     justify-content: center;
     align-items: center;
 }
+
 .detail-modal-content {
     display: flex;
     flex-direction: row;
@@ -422,6 +475,7 @@ p {
     overflow: hidden;
     position: relative;
 }
+
 .detail-bg {
     width: 50%;
     background-size: cover;
@@ -430,6 +484,7 @@ p {
     border-bottom-left-radius: 20px;
     position: relative;
 }
+
 .detail-bg::after {
     content: "";
     position: absolute;
@@ -438,6 +493,7 @@ p {
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
 }
+
 .detail-info {
     width: 50%;
     padding: 25px;
@@ -445,17 +501,20 @@ p {
     background-color: rgba(255, 255, 255, 0.97);
     font-family: Arial, sans-serif;
 }
+
 .detail-info h2 {
     font-family: header-font;
     font-size: 32px;
     color: #864b15;
     margin-bottom: 15px;
 }
+
 .detail-info p {
     font-size: 16px;
     color: #5a3210;
     margin-bottom: 10px;
 }
+
 .detail-info pre {
     font-size: 15px;
     color: #5a3210;
@@ -466,15 +525,19 @@ p {
     word-wrap: break-word;
     margin-bottom: 15px;
 }
+
 .detail-info strong {
     color: #864b15;
 }
+
 .detail-actions {
     display: flex;
     gap: 10px;
     margin-top: 15px;
 }
-.edit-bttn, .delete-bttn {
+
+.edit-bttn,
+.delete-bttn {
     background-color: #864b15;
     color: white;
     font-family: header-font;
@@ -485,15 +548,19 @@ p {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
+
 .edit-bttn:hover {
     background-color: #b97740;
 }
+
 .delete-bttn {
     background-color: #c73f3f;
 }
+
 .delete-bttn:hover {
     background-color: #e87070;
 }
+
 .close {
     position: absolute;
     top: 15px;
@@ -509,6 +576,7 @@ p {
     cursor: pointer;
     z-index: 10;
 }
+
 .recipe-item {
     position: relative;
 }
@@ -524,13 +592,15 @@ p {
     font-style: italic;
     color: #666;
 }
-.recipe-link + small {
+
+.recipe-link+small {
     font-size: 0.8em;
     font-style: italic;
     margin-top: 2px;
     display: block;
 }
-.recipe-link + br + small {
+
+.recipe-link+br+small {
     font-weight: bold;
     font-size: 0.75em;
     padding: 2px 6px;
@@ -538,6 +608,7 @@ p {
     display: inline-block;
     margin-top: 3px;
 }
+
 #togglePublicBtn {
     transition: background-color 0.3s ease;
     border: none;
@@ -547,35 +618,157 @@ p {
     font-weight: bold;
     cursor: pointer;
 }
+
 #togglePublicBtn:hover {
     opacity: 0.9;
     transform: translateY(-1px);
 }
+
 .detail-actions {
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
     margin-top: 20px;
 }
+
 .detail-actions button {
     flex: 1;
     min-width: 120px;
 }
+
 .detail-actions button:disabled {
     opacity: 0.6;
     cursor: not-allowed;
 }
+
 #recipeTable1 tbody tr:hover {
     background-color: #f8f9fa;
     transform: translateY(-1px);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: all 0.2s ease;
 }
+
 .search {
     transition: border-color 0.3s ease;
 }
+
 .search:focus {
     border-color: #007bff;
     outline: none;
-    box-shadow: 0 0 5px rgba(0,123,255,0.3);
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+@media screen and (max-width: 768px) {
+
+    /* Header & Navigation */
+    header {
+        flex-direction: column;
+        padding: 15px;
+        text-align: center;
+    }
+
+    .logo {
+        flex-direction: column;
+        margin-bottom: 15px;
+    }
+
+    h1 {
+        font-size: 36px;
+        margin-right: 0;
+        margin-bottom: 5px;
+    }
+
+    h2 {
+        font-size: 24px;
+        margin-top: 5px;
+    }
+
+    /* Container for search and sort buttons */
+    .view,
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .search {
+        width: 100%;
+        border-radius: 15px;
+        margin-bottom: 10px;
+    }
+
+    .btn,
+    .sort-btn {
+        width: 100%;
+        border-radius: 15px;
+        justify-content: center;
+    }
+
+    /* Recipe Table */
+    .view+table,
+    .recipe-list {
+        display: block;
+        width: 95%;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    /* Hide less important columns on very small screens if needed, 
+       or keep horizontal scroll as above */
+
+    /* Detail Modal - Stack vertically */
+    .detail-modal-content {
+        flex-direction: column;
+        max-height: 85vh;
+        width: 95%;
+        overflow-y: auto;
+    }
+
+    .detail-bg {
+        width: 100%;
+        height: 200px;
+        /* Fixed height for image area */
+        border-radius: 20px 20px 0 0;
+    }
+
+    .detail-bg::after {
+        border-radius: 20px 20px 0 0;
+    }
+
+    .detail-info {
+        width: 100%;
+        padding: 15px;
+        overflow-y: visible;
+        /* Scroll happens on parent now */
+    }
+
+    .close {
+        top: 10px;
+        right: 10px;
+    }
+
+    /* Add Button */
+    .add-btn {
+        bottom: 15px;
+        right: 15px;
+        font-size: 20px;
+        padding: 12px 18px;
+    }
+
+    /* General Modal Content */
+    .modal-content,
+    .sort-modal-content {
+        width: 95%;
+        padding: 15px;
+    }
+
+    /* Forms */
+    #sortItemForm .form-group {
+        flex-direction: column;
+    }
+
+    #sortItemForm select {
+        width: 100%;
+        margin-top: 5px;
+    }
 }
