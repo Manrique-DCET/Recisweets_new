@@ -6,6 +6,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 
 const app = express();
+app.set('trust proxy', 1); // Trust first proxy (Render)
 const PORT = process.env.PORT || 3000;
 
 const JWT_SECRET = process.env.JWT_SECRET || 'your_actual_secret_key_here';
